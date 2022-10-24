@@ -26,6 +26,10 @@ public class MockServerDemoApplication {
 
         //持久化期望数据
         ConfigurationProperties.persistExpectations(true);
+        //启用JWT验证
+        ConfigurationProperties.controlPlaneJWTAuthenticationRequired(true);
+        String controlPlaneJWTAuthenticationJWKSource = "";
+        ConfigurationProperties.controlPlaneJWTAuthenticationJWKSource(controlPlaneJWTAuthenticationJWKSource);
 
         ClientAndServer mockServer = startClientAndServer(1080);
         System.out.println("mock server【" + mockServer + "】 start...");
